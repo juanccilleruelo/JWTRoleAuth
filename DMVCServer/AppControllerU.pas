@@ -62,8 +62,11 @@ uses
 { TApp1MainController }
 
 procedure TApp1MainController.PublicSection(ctx: TWebContext);
+var JObj :TJSONObject;
 begin
-   Render('This is a public section');
+   JObj := TJSONObject.Create;
+   JObj.AddPair('message', 'This is a public section');
+   Render(JObj);
 end;
 
 { TAdminController }
